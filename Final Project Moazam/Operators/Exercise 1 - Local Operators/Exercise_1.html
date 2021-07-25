@@ -1,0 +1,18 @@
+<h1>OpenCV – Operators</h1>
+<h2>Done by : <code>Mohammad Moazam</code></h2>
+<h2>Exercise 1 : Local operator</h2>
+<p>In this exercise we had to implement operators in our class.
+We had to implement the following operators :</p>
+<ul>
+<li>Operator =</li>
+<li>Operator (i,j)
+*Operator [index]</li>
+</ul>
+<p>I was not sure to what to implement in the functions as it was explicitly mentioned in the exercise. So, I used them to implement Mat functions.</p>
+<h3><code>virtual void operator=(Mat&amp; src)</code></h3>
+<p>I used this operator to make a shallow copy of the given src.</p>
+<h3><code>virtual const Mat operator[](const Rect &amp;roi)</code></h3>
+<p>I used the [] to get the rect portion from the stored Mat object.</p>
+<h3><code>virtual const Vec3b operator()(int i, int j)</code></h3>
+<p>I used to () to get the vector at location (i,j). (at(i,j) function of Mat)</p>
+<hr>

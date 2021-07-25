@@ -1,0 +1,191 @@
+<h1>OpenCV – Multiple Inheritance and Polymorphism</h1>
+<h2>Done by : <code>Mohammad Moazam</code></h2>
+<h2>Exercise 1 :  Multiple inheritance and image processing</h2>
+<p>In this exercise we had to create two classes BlurFiltering and EdgeDetector that inherit from Base and Mat classes.</p>
+<h3><strong><em><code>Base class</code></em></strong></h3>
+<p>This class has some common functions for classes BlurFiltering and EdgeDetector.</p>
+<ul>
+<li>
+<p><strong><code>parameters</code></strong></p>
+<ul>
+<li>
+<p><code>int process</code></p>
+<ul>
+<li>this is used to store the process</li>
+</ul>
+</li>
+<li>
+<p><code>baseTypes type</code></p>
+<ul>
+<li>baseTypes is enum that has two options EdgeDetect, BlurFilter. This parameter will store type of process (to distinguish between edge detection and bur filtering).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>constructors</code></strong></p>
+<ul>
+<li>
+<p><code>Base(baseTypes _type)</code></p>
+<ul>
+<li>this constructor sets the type of the process</li>
+</ul>
+</li>
+<li>
+<p><code>Base(int \_process, baseTypes \_type)</code></p>
+<ul>
+<li>constructor sets the type of the process and the process (enum / integer)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>member functions</code></strong></p>
+<ul>
+<li>
+<p><code>void setOpenCVProcessName(EdgeDetectors _process)</code></p>
+<ul>
+<li>this function will be used to set process for edge detection</li>
+</ul>
+</li>
+<li>
+<p><code>void setOpenCVProcessName(BlurFilters _process)</code></p>
+<ul>
+<li>this function will be used to set process for blur filtering</li>
+</ul>
+</li>
+<li>
+<p><code>const char* getOpenCVProcessName()</code></p>
+<ul>
+<li>this function will return the current set process</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3><strong><em><code>BlurFiltering class</code></em></strong></h3>
+<p>This class inherits from Base class and cv::Mat class. This class is used to perform blurfiltering.</p>
+<ul>
+<li>
+<p><strong><code>parameters</code></strong></p>
+<ul>
+<li>
+<p><code>const int sigma = 3</code></p>
+<ul>
+<li>const value used in Blur filtering algorithms</li>
+</ul>
+</li>
+<li>
+<p><code>const int ksize = (sigma * 5) | 1</code></p>
+<ul>
+<li>const value used in Blur filtering algorithms</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>constructors</code></strong></p>
+<ul>
+<li>
+<p><code>BlurFiltering() : Base(BlurFilter) {}</code></p>
+<ul>
+<li>this default constructor sets the type of the process automatically by calling the base constructor</li>
+</ul>
+</li>
+<li>
+<p><code>BlurFiltering(const Mat&amp; src, BlurFilters process = MEAN) : Mat(src), Base(process, BlurFilter) {}</code></p>
+<ul>
+<li>constructor initialises the Mat class and the Base class by providing the source Mat and automatically setting the type in Base class.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>member functions</code></strong></p>
+<ul>
+<li>
+<p><code>void compute(Mat&amp; input)</code></p>
+<ul>
+<li>this function is used to run the process (a blur filtering algorithm) on input. I used reference to make it more efficient (space and time both).</li>
+</ul>
+</li>
+<li>
+<p><code>void compute()</code></p>
+<ul>
+<li>this function will be used on the Mat data (that we init in constructor) and run the compute on that.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3><strong><em><code>EdgeDetector class</code></em></strong></h3>
+<p>This class inherits from Base class and cv::Mat class. This class is used to perform edge detection.</p>
+<ul>
+<li>
+<p><strong><code>parameters</code></strong></p>
+<ul>
+<li>
+<p><code>const int lowThreshold = 50</code></p>
+<ul>
+<li>const value used in edge detection algorithms</li>
+</ul>
+</li>
+<li>
+<p><code>const int ratio = 3</code></p>
+<ul>
+<li>const value used in edge detection algorithms</li>
+</ul>
+</li>
+<li>
+<p><code>const int kernel_size = 3</code></p>
+<ul>
+<li>const value used in edge detection algorithms</li>
+</ul>
+</li>
+<li>
+<p><code>const int scale = 1, delta = 0</code></p>
+<ul>
+<li>const value used in edge detection algorithms</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>constructors</code></strong></p>
+<ul>
+<li>
+<p><code>EdgeDetector() : Base(EdgeDetect) {}</code></p>
+<ul>
+<li>this default constructor sets the type of the process automatically by calling the base constructor</li>
+</ul>
+</li>
+<li>
+<p><code>EdgeDetector(const Mat&amp; src, EdgeDetectors process = CANNY) : Mat(src), Base(process, EdgeDetect) {}</code></p>
+<ul>
+<li>constructor initialises the Mat class and the Base class by providing the source Mat and automatically setting the type in Base class.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>member functions</code></strong></p>
+<ul>
+<li>
+<p><code>void compute(Mat&amp; input)</code></p>
+<ul>
+<li>this function is used to run the process (a edge detection algorithm) on input. I used reference to make it more efficient (space and time both).</li>
+</ul>
+</li>
+<li>
+<p><code>void compute()</code></p>
+<ul>
+<li>this function will be used on the Mat data (that we init in constructor) and run the compute on that.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Comments</h4>
+<hr>
+<p>I have seperated the code in a new folder name "psrs" and all the header files can be used by using the <em>namespace psrs</em>.</p>
+<p>There is main.cpp that runs the <code>main()</code> function as per asked in the exercise 1.</p>

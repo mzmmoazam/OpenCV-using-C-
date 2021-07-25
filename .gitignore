@@ -1,6 +1,18 @@
 # Prerequisites
 *.d
 
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+*.mp4
+old/*.mp4
+*.avi
+old/*.avi
+
 # Compiled Object files
 *.slo
 *.lo

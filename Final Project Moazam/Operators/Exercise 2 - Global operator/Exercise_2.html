@@ -1,0 +1,24 @@
+<h1>OpenCV – Operators</h1>
+<h2>Done by : <code>Mohammad Moazam</code></h2>
+<h2>Exercise 2 : Global operator</h2>
+<p>In this exercise we were asked to define <code>&lt;&lt; , &gt;&gt; operators</code> globally.</p>
+<h3><code>&gt;&gt; Operator</code></h3>
+<pre><code>Mat&amp; operator&gt;&gt;(Mat&amp; src, Base&amp; baseObj) {
+    baseObj.compute(src);
+    return src;
+}
+</code></pre>
+<p>As in the code compute is a virtual function and I using the <em>&gt;&gt; operator</em> to compute the process and forward the base object that can be further used as Mat.</p>
+<h3><code>&lt;&lt; Operator</code></h3>
+<pre><code>ostream&amp; operator&lt;&lt;(std::ostream&amp; outStream, Base&amp; imageProcessing) {
+
+    outStream &lt;&lt; imageProcessing.getOpenCVProcessName() &lt;&lt; endl;
+
+    return outStream;
+
+}
+</code></pre>
+<p>I used the out stream, so that we directly print the process name using cout as asked in the exercise.</p>
+<hr>
+<h3>Comments</h3>
+<p>I have transferred all the global functions and constants inside <code>psrs/base.h</code> file.</p>
